@@ -15,6 +15,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.haowu.model.Model;
+import com.example.haowu.model.db.User;
+import com.example.haowu.utils.HttpUtils;
+import com.example.haowu.utils.UserUtils;
 import com.hyphenate.EMCallBack;
 import com.hyphenate.chat.EMClient;
 import com.example.haowu.QTApplication;
@@ -161,7 +165,7 @@ public class SettingActivity extends AppCompatActivity {
         alert.show();
     }
 
-    //关于我们的逻辑处理
+    //关于逻辑处理
     public void setAboutus() {
         AlertDialog alert = new AlertDialog.Builder(SettingActivity.this).setTitle("关于我")
                 .setMessage(
