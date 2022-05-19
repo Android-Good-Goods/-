@@ -21,19 +21,20 @@ import net.Implementist.Dao.TokenDao;
 
 /**
  *  环信工具类
+ *  该部分代码仅作为参考，未真正实施部署在服务器上，但参数部分的所有内容信息为真，暂未进行真实测试
  */
 public class HXUtil {
 
     private static final RestTemplate restTemplate = new RestTemplate();
     
     // 企业的唯一标识，开发者在环信开发者管理后台注册账号时填写的企业 ID
-    private static final String ORG_NAME = "1121190605042404";
+    private static final String ORG_NAME = "1137220519165904";
     // App的client_id
-    private static final String CLIENT_ID = "YXA6LySRgYaETuqEoRVY1Pjydg";
+    private static final String CLIENT_ID = "YXA6FSiuegiCRz6qjS8HLhgJ2g";
     // App的client_secret
-    private static final String CLIENT_SECRET = "YXA6JqfUT1uVryGRXx-YqRnVpG3etxc";
+    private static final String CLIENT_SECRET = "YXA62HWeQzsbxT5AvcaZG58hiSI4Csw";
     // 同一“企业”下“APP”唯一标识，开发者在环信开发者管理后台创建应用时填写的“应用名称”
-    private static final String APP_NAME = "qutaomarket";
+    private static final String APP_NAME = "haowu";
     // 链接前缀
     private static final String URL_PREFIX = "http://a1.easemob.com/" + ORG_NAME + "/" + APP_NAME + "/";
     // 缓存的token
@@ -55,6 +56,7 @@ public class HXUtil {
     /**
      * 获取Token
      * 注意：关于有效时间，我在网上找过，说的是7天,所以估计看的时候应该要过期了要重新搞（这个服务器可以试用的不用花钱）
+     * 代码参照官方说明
      * @return token
      */
     public static Token getToken() {
