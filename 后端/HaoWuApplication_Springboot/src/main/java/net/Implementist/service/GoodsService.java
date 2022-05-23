@@ -14,5 +14,15 @@ import java.util.List;
  * @since 2022-05-21
  */
 public interface GoodsService extends IService<Goods> {
+    List<Goods> queryType(String type, String state);
 
+    List<Goods> queryGoodsMo(String Gname,String Gstate);
+
+    List<Goods> queryFree(String state);
+
+    List<Goods> queryEmergent(String emergent,String state);
+
+    List<Goods> queryMyfree(String uid,String state);
+
+    boolean refreshGoods(Goods target);
 }

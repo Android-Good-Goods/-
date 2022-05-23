@@ -8,9 +8,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  *  服务类
  * </p>
  *
- * @author 
- * @since 2022-05-21
  */
 public interface AccountService extends IService<Account> {
-
+    boolean RefreshAccountById(Account account);
 }

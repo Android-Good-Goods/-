@@ -20,5 +20,9 @@ public interface UserService extends IService<User> {
 
     JSONObject Loginverify(String account,String password);
 
-    void updateUserState(User user);
+    void updateUser(User user);
+
+    boolean refreshUserByAccount(User user) throws Exception;
+
+    JSONObject ModifyPwd(String account,String password,String newpassword);
 }

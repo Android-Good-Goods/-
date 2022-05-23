@@ -18,4 +18,8 @@ import org.springframework.stereotype.Service;
 public class AccountServiceImpl extends ServiceImpl<AccountMapper, Account> implements AccountService {
 
 
+    @Override
+    public boolean RefreshAccountById(Account account) {
+        return updateById(account);
+    }
 }

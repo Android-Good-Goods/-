@@ -9,10 +9,14 @@ import net.Implementist.mapper.UserMapper;
 import net.Implementist.service.UserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import net.Implementist.util.HXUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.ServletException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * <p>
@@ -78,7 +82,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 User target = new User();
                 target.setUid(user.getUid());
                 target.setUstate(2);
-                updateUserState(target);
+                updateUser(target);
                 //拼接返回数据
                 code.put("code", "1");
                 data.put("account", user.getUaccount().trim());
@@ -113,8 +117,56 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public void updateUserState(User user) {
+    public void updateUser(User user) {
         updateById(user);
+    }
+
+    @Override
+    public boolean refreshUserByAccount(User target) throws Exception {
+        String account = target.getUaccount();
+        if (StringUtils.isBlank(account)) {
+            throw new Exception("account为空,不能查询");
+        }
+        User user = queryUserByAccount(account);
+        if (null != user) {
+            target.setUid(user.getUid());
+            return updateById(target);
+        }
+        return false;
+    }
+
+    //修改密码并返回处理结果
+    @Override
+    public JSONObject ModifyPwd(String account,String password,String newpassword) {
+        //定义变量
+        JSONObject vresult = new JSONObject();
+        Map<String, String> data = new HashMap<>();
+        try {
+            //密码验证结果
+            User verifyResult = queryUserByAccount(account);      //验证用户账号是否已经存在
+            if(null != verifyResult)
+            {
+                if(HXUtil.updatePassword(account, newpassword)){
+                    User target = new User();
+                    target.setUaccount(account).setUpwd(newpassword.trim());
+                    boolean modify = refreshUserByAccount(target);
+                    if (modify) {
+                        vresult.put("code", "1");   //密码修改成功
+                        data.put("password", newpassword.trim());
+                        vresult.put("data", data);
+                    } else {
+                        vresult.put("code", "0");   //密码修改失败
+                    }
+                } else {
+                    vresult.put("code", "0");   //密码修改失败
+                }
+            }else{
+                vresult.put("code", "0"); //密码修改失败
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vresult;
     }
 
 

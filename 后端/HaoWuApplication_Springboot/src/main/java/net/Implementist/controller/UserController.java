@@ -3,6 +3,7 @@ package net.Implementist.controller;
 import cn.hutool.json.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import net.Implementist.entity.User;
 import net.Implementist.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +42,6 @@ public class UserController {
 
     }
 
-
     //注册servlet
     @RequestMapping(path = "/Signup_Servlet", produces = "text/html;charset=utf-8")
     public String signup() throws JsonProcessingException {
@@ -55,9 +55,37 @@ public class UserController {
         return objectMapper.writeValueAsString(jsonObject);
     }
 
-    @RequestMapping(value = "/test")
-    public String test(HttpServletResponse response) {
-        return "1234567890";
+    @RequestMapping(value = "/Setting_Servlet", produces = "text/html;charset=utf-8")
+    public String test(HttpServletResponse response) throws Exception {
+        String account,password,newpassword;
+        ObjectMapper objectMapper = new ObjectMapper();
+        JSONObject resultJsonObject = new JSONObject();
+        //获得请求头
+        String requesttop = request.getParameter("requesttop").trim();
+        switch (requesttop)
+        {
+            case "logout":
+                boolean rs = false;
+                account = request.getParameter("account").trim();
+                User target = new User();
+                target.setUaccount(account).setUstate(1);
+                rs = userService.refreshUserByAccount(target);  //把用户状态改成1
+                if(rs){
+                    resultJsonObject.put("code", "1");
+                }else{
+                    resultJsonObject.put("code", "0");
+                }
+                break;
+            case "modifypwd":                          //修改密码
+                JSONObject pwdResult = new JSONObject();
+                User target1 = new User();
+                account = request.getParameter("account").trim();
+                password = request.getParameter("pwd").trim();
+                newpassword = request.getParameter("newpwd").trim();
+                resultJsonObject = userService.ModifyPwd(account,password,newpassword);
+                break;
+        }
+        return objectMapper.writeValueAsString(resultJsonObject);
     }
 }
 
