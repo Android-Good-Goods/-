@@ -17,4 +17,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class BuyServiceImpl extends ServiceImpl<BuyMapper, Buy> implements BuyService {
 
+    @Override
+    public boolean refreshBuyById(Buy buy) {
+        return false;
+    }
 }

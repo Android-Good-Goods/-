@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-05-21
  */
 public interface BuyconmentsService extends IService<Buyconments> {
-
+    boolean insertBuyConments(Buyconments buyconments);
+    boolean refreshConmentsByBconid(Buyconments entity);
 }

@@ -12,5 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-05-21
  */
 public interface JoincharityService extends IService<Joincharity> {
-
+    boolean verifyJoin(String uid, String cid);
+    boolean insertJoin(Joincharity joincharity);
 }

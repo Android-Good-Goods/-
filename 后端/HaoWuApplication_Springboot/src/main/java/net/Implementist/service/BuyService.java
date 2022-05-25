@@ -12,6 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-05-21
  */
 public interface BuyService extends IService<Buy> {
-
+    boolean refreshBuyById(Buy buy);
 
 }
