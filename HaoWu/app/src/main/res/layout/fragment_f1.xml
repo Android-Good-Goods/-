@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".contoller.fragment.F1Fragment"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:id="@+id/ll_f1_search"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorRed"
+        android:fitsSystemWindows="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:fitsSystemWindows="true"
+            android:text="好物"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="6"
+            android:background="@drawable/edittext_seach">
+
+            <EditText
+                android:id="@+id/et_f1_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@null"
+                android:hint="搜一搜"
+                android:textCursorDrawable="@null" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_f1_search"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ic_f1_search_foreground" />
+
+    </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_f1_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_fragment1"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:layout_margin="15dp"
+                        android:background="@color/cardview_light_background"
+                        app:cardCornerRadius="10dp"
+                        android:elevation="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_f1_new"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:clickable="true"
+                                    android:background="@drawable/ll_selector_white">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="最新发布"
+                                            android:textSize="15sp"
+                                            android:textColor="@color/Black"
+                                            android:layout_gravity="center_horizontal"
+                                            android:gravity="center_vertical"/>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="快来看看都有啥！"
+                                            android:textSize="12sp"
+                                            android:gravity="center_horizontal"/>
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/fabu"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="10dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/hui">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_f1_free"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:clickable="true"
+                                    android:background="@drawable/ll_selector_white">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="免费送"
+                                            android:textSize="15sp"
+                                            android:textColor="@color/Black"
+                                            android:layout_gravity="center_horizontal"
+                                            android:gravity="center_vertical"/>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="免费来拿！"
+                                            android:textSize="12sp"
+                                            android:gravity="center_horizontal"/>
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/mainfei"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="10dp"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="@color/hui">
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_f1_charity"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:clickable="true"
+                                    android:background="@drawable/ll_selector_white">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="公益活动"
+                                            android:textSize="15sp"
+                                            android:textColor="@color/Black"
+                                            android:layout_gravity="center_horizontal"
+                                            android:gravity="center_vertical"/>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="快来看看公益吧！"
+                                            android:textSize="12sp"
+                                            android:gravity="center_horizontal"/>
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/gongyi"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="10dp"/>
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/hui">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_f1_buy"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal"
+                                    android:clickable="true"
+                                    android:background="@drawable/ll_selector_white">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="我要买"
+                                            android:textSize="15sp"
+                                            android:textColor="@color/Black"
+                                            android:layout_gravity="center_horizontal"
+                                            android:gravity="center_vertical"/>
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="0dp"
+                                            android:layout_weight="1"
+                                            android:text="求购都在这哦！"
+                                            android:textSize="12sp"
+                                            android:gravity="center_horizontal"/>
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_width="45dp"
+                                        android:layout_height="45dp"
+                                        android:src="@drawable/qiugou"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginRight="10dp"/>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:id="@+id/f1_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cv_fragment1"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_phone"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_phone"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="手机数码"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_daily"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_allgoods"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="生活百货"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_elec"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_elec"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="家用电器"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_outsports"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_outsports"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="运动户外"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_clothes"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_clothes"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="服饰配件"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_toy"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_toys"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="儿童玩具"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_game"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_game"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="游戏装备"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/ll_f1_moreclass"
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:clickable="true">
+
+                                <ImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    android:src="@drawable/f1_moreclass"
+                                    android:layout_gravity="center_horizontal"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="更多分类"
+                                    android:textSize="12sp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_gravity="center_horizontal"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/f1_ll_jijiji"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/f1_class"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/main_emergent_bg">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1.2"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/f1_sale"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="急      售        "
+                                android:textColor="@color/colorRed"
+                                android:textSize="20sp"
+                                android:gravity="center" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/hui"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_f1_urgent1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:clickable="true"
+                            android:background="@drawable/ll_selector_white">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/reddot"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_f1_jistyle1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="【手机数码】"
+                                android:textColor="@color/colorRed"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:id="@+id/tv_f1_jicontent1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="闲置手机一台，便宜处理！"
+                                android:textSize="15sp"
+                                android:textColor="@color/Black"
+                                android:layout_marginLeft="5dp"
+                                android:singleLine="true"
+                                android:layout_gravity="center_vertical" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/hui"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_f1_urgent2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:clickable="true"
+                            android:background="@drawable/ll_selector_white">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/reddot"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_f1_jistyle2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="【手机数码】"
+                                android:textSize="15sp"
+                                android:textColor="@color/colorRed"
+                                android:layout_gravity="center_vertical"/>
+
+                            <TextView
+                                android:id="@+id/tv_f1_jicontent2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="闲置手机一台，便宜处理！"
+                                android:textSize="15sp"
+                                android:textColor="@color/Black"
+                                android:layout_marginLeft="5dp"
+                                android:singleLine="true"
+                                android:layout_gravity="center_vertical"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/hui"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_f1_urgent3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="2dp"
+                            android:clickable="true"
+                            android:background="@drawable/ll_selector_white">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/reddot"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="5dp"/>
+
+                            <TextView
+                                android:id="@+id/tv_f1_jistyle3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="【手机数码】"
+                                android:textSize="15sp"
+                                android:textColor="@color/colorRed"
+                                android:layout_gravity="center_vertical"/>
+
+                            <TextView
+                                android:id="@+id/tv_f1_jicontent3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="闲置手机一台，便宜处理！"
+                                android:textSize="15sp"
+                                android:textColor="@color/Black"
+                                android:layout_marginLeft="5dp"
+                                android:singleLine="true"
+                                android:layout_gravity="center_vertical"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/hui"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp">
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_f1_urgentmore"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.8"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:clickable="true"
+                            android:background="@drawable/ll_selector_white">
+
+                            <ImageView
+                                android:layout_width="35dp"
+                                android:layout_height="25dp"
+                                android:src="@drawable/f1_more"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="15dp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_f1_guess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="猜你喜欢"
+                        android:textSize="15sp"
+                        android:textColor="@color/Black"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@+id/f1_ll_jijiji"
+                        android:layout_marginTop="20sp"/>
+
+                    <LinearLayout
+                        android:id="@+id/ll_f1_huiline"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/hui"
+                        android:layout_below="@+id/tv_f1_guess"
+                        android:orientation="horizontal">
+                    </LinearLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_f1_goodslist"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/ll_f1_huiline"
+                        android:layout_marginTop="5dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_below="@+id/rv_f1_goodslist"/>
+
+                </RelativeLayout>
+
+            </ScrollView>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</RelativeLayout>
