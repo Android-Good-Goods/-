@@ -85,9 +85,46 @@ LINK /welcome
 
 # 登录/登录界面
 
+## GET 登录
+
+GET /User/login
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Uaccount|query|string| 否 |账号|
+|Upwd|query|string| 否 |密码|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "Uaccount": "630000200501263954",
+  "Upwd": "cWP1dYc"
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» Uaccount|string|true|none|none|
+|» Upwd|string|true|none|none|
+
 ## POST 注册
 
-POST /login/signup
+POST /User/signup
 
 ### 请求参数
 
@@ -149,48 +186,11 @@ POST /login/signup
 |» Ureputation|string|true|none|none|
 |» Utel|string|true|none|none|
 
-## GET 登录
-
-GET /login/login
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|Uaccount|query|string| 否 |账号|
-|Upwd|query|string| 否 |密码|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "Uaccount": "630000200501263954",
-  "Upwd": "cWP1dYc"
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» Uaccount|string|true|none|none|
-|» Upwd|string|true|none|none|
-
 # 商品界面/商品分类界面
 
 ## OPTIONS 商品列表
 
-OPTIONS /type
+OPTIONS /Goods/index
 
 > 返回示例
 
@@ -220,7 +220,7 @@ OPTIONS /type
 
 ## PUT 商品列表
 
-PUT /goods/goods_list
+PUT /Goods/Goodsdetail
 
 ### 请求参数
 
@@ -302,98 +302,9 @@ PUT /goods/goods_list
 
 # 商品界面/商品细节
 
-## PUT 评论收藏
-
-PUT /goods/goodsdetail
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|Conid|query|string| 否 |主键，评论id|
-|Uaccount|query|string| 否 |none|
-|Gid|query|string| 否 |none|
-|Uid|query|string| 否 |none|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "Conid": "640000199708203146"
-}
-```
-
-```json
-{
-  "Conid": "450000200001312867",
-  "Uaccount": "610000197003205833",
-  "Gid": 610000199910158300,
-  "Uid": 120000202105195700
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» Conid|string|true|none|none|
-|» Uaccount|string|true|none|none|
-|» Gid|integer|true|none|none|
-|» Uid|integer|true|none|none|
-
-## GET 加载项获取权限信息
-
-GET /goods/goodsdetail
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|Uphoto|query|string| 否 |头像存储路径|
-|Unickname|query|string| 否 |昵称|
-|Ureputation|query|string| 否 |信誉值|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "Uphote": "http://dummyimage.com/728x90",
-  "Unickname": "mwXz",
-  "Ureputation": 70
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» Uphote|string|true|none|none|
-|» Unickname|string|true|none|none|
-|» Ureputation|integer|true|none|none|
-
 ## POST 商品设置
 
-POST /goods/goodsdetail
+POST /Goods/setgoods
 
 ### 请求参数
 
@@ -455,17 +366,18 @@ POST /goods/goodsdetail
 |» Gstate|integer|true|none|none|
 |» Gscannum|integer|true|none|none|
 
-# 购买界面/购买细节
+## PUT 评论收藏
 
-## PUT 购买表
-
-PUT /buy/buydetail
+PUT /collect/getcollect
 
 ### 请求参数
 
 |名称|位置|类型|必选|说明|
 |---|---|---|---|---|
-|Bid|query|string| 否 |求购id	主键|
+|Conid|query|string| 否 |主键，评论id|
+|Uaccount|query|string| 否 |none|
+|Gid|query|string| 否 |none|
+|Uid|query|string| 否 |none|
 
 > 返回示例
 
@@ -473,7 +385,16 @@ PUT /buy/buydetail
 
 ```json
 {
-  "Bid": 620000197405286700
+  "Conid": "640000199708203146"
+}
+```
+
+```json
+{
+  "Conid": "450000200001312867",
+  "Uaccount": "610000197003205833",
+  "Gid": 610000199910158300,
+  "Uid": 120000202105195700
 }
 ```
 
@@ -489,7 +410,104 @@ PUT /buy/buydetail
 
 |名称|类型|必选|约束|说明|
 |---|---|---|---|---|
-|» Bid|integer|true|none|none|
+|» Conid|string|true|none|none|
+|» Uaccount|string|true|none|none|
+|» Gid|integer|true|none|none|
+|» Uid|integer|true|none|none|
+
+## PUT 评论区
+
+PUT /buycoments/conments
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Uphote|query|string| 否 |头像存储路径|
+|Uid|query|string| 否 |用户id	主键|
+|Uaccount|query|string| 否 |账号|
+|Unickname|query|string| 否 |昵称|
+|Concontent|query|string| 否 |评论内容|
+|Contime|query|string| 否 |评论时间|
+|Conid|query|string| 否 |评论id，主键|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "Uphote": "http://dummyimage.com/250x250",
+  "Uid": 500000199403227840,
+  "Uaccount": "500000201908204345",
+  "Unickname": "lTci6M",
+  "Concontent": "群装放好油世领除声么设便己面结历被。",
+  "Contime": "2018-10-27 AM 09:25:10",
+  "Conid": "410000197808213331"
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» Uphote|string|true|none|none|
+|» Uid|integer|true|none|none|
+|» Uaccount|string|true|none|none|
+|» Unickname|string|true|none|none|
+|» Concontent|string|true|none|none|
+|» Contime|string|true|none|none|
+|» Conid|string|true|none|none|
+
+## GET 加载项获取权限信息
+
+GET /Goods/goods
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Uphoto|query|string| 否 |头像存储路径|
+|Unickname|query|string| 否 |昵称|
+|Ureputation|query|string| 否 |信誉值|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "Uphote": "http://dummyimage.com/728x90",
+  "Unickname": "mwXz",
+  "Ureputation": 70
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» Uphote|string|true|none|none|
+|» Unickname|string|true|none|none|
+|» Ureputation|integer|true|none|none|
+
+# 购买界面/购买细节
 
 ## GET 求购商品
 
@@ -555,7 +573,90 @@ GET /buy/buydetail
 |» Bscannum|integer|true|none|none|
 |» Bstate|string|true|none|none|
 
+## PUT 购买表
+
+PUT /buy/buydetail
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Bid|query|string| 否 |求购id	主键|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "Bid": 620000197405286700
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» Bid|integer|true|none|none|
+
 # 购买界面/订单界面
+
+## PUT 上传订单
+
+PUT /buy/account
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Aid|query|string| 否 |订单id	主键|
+|Gid|query|string| 否 |商品id	外键|
+|Gname|query|string| 否 |商品名称|
+|Uid|query|string| 否 |买家id	外键|
+|Abill|query|string| 否 |订单金额	保留小数点后两位|
+|Atime|query|string| 否 |交易时间|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "Aid": 420000201412242240,
+  "Gid": 330000200611062140,
+  "Uid": 640000197301214500,
+  "Uaccount": "#Wy$Z",
+  "Atime": "2001-01-30 AM 10:50:10",
+  "Abill": 20
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» Aid|integer|true|none|none|
+|» Gid|integer|true|none|none|
+|» Uid|integer|true|none|none|
+|» Uaccount|string|true|none|none|
+|» Atime|string|true|none|none|
+|» Abill|number|true|none|none|
 
 ## GET 订单收发货信息
 
@@ -643,66 +744,23 @@ DELETE /buy/account
 |---|---|---|---|---|
 |» Aid|integer|true|none|none|
 
-## PUT 上传订单
-
-PUT /buy/account
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|Aid|query|string| 否 |订单id	主键|
-|Gid|query|string| 否 |商品id	外键|
-|Gname|query|string| 否 |商品名称|
-|Uid|query|string| 否 |买家id	外键|
-|Abill|query|string| 否 |订单金额	保留小数点后两位|
-|Atime|query|string| 否 |交易时间|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "Aid": 420000201412242240,
-  "Gid": 330000200611062140,
-  "Uid": 640000197301214500,
-  "Uaccount": "#Wy$Z",
-  "Atime": "2001-01-30 AM 10:50:10",
-  "Abill": 20
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» Aid|integer|true|none|none|
-|» Gid|integer|true|none|none|
-|» Uid|integer|true|none|none|
-|» Uaccount|string|true|none|none|
-|» Atime|string|true|none|none|
-|» Abill|number|true|none|none|
-
 # 个人界面/个人信息界面/我的页面
 
 ## GET 显示用户信息
 
-GET /user/userInfo
+GET /Person/account
 
 ### 请求参数
 
 |名称|位置|类型|必选|说明|
 |---|---|---|---|---|
-|Uid|query|string| 是 |none|
+|Uid|query|string| 否 |主键，用户名|
+|Uphoto|query|string| 否 |头像，输入的是地址|
+|Unickname|query|string| 否 |昵称|
+|Usex|query|string| 否 |性别，1  or 2|
+|Uschool|query|string| 否 |学校|
+|Utel|query|string| 否 |电话|
+|Uaddress|query|string| 否 |地址|
 
 > 返回示例
 
@@ -753,9 +811,194 @@ GET /user/userInfo
 
 # 个人界面/个人信息界面/地址管理
 
+## POST 添加地址信息
+
+POST /user/addAddress
+
+> Body 请求参数
+
+```yaml
+Receiver: string
+ReceiverPhone: string
+Address: string
+Username: string
+AddressDetail: string
+IsdefaultAddress: string
+
+```
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|body|body|object| 否 |none|
+|» Receiver|body|string| 是 |收货人|
+|» ReceiverPhone|body|string| 是 |收货手机号|
+|» Address|body|string| 是 |所在地区|
+|» Username|body|string| 是 |用户名|
+|» AddressDetail|body|string| 是 |具体地址|
+|» IsdefaultAddress|body|string| 是 |是否设为默认地址|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "data": true
+}
+```
+
+> 失败
+
+```json
+{
+  "data": false
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+状态码 **400**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+## PUT 修改地址信息
+
+PUT /user/changeAddress
+
+> Body 请求参数
+
+```yaml
+Receiver: string
+ReceiverPhone: string
+Address: string
+Username: string
+AddressDetail: string
+IsdefaultAddress: string
+AddressID: string
+
+```
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|body|body|object| 否 |none|
+|» Receiver|body|string| 是 |收货人|
+|» ReceiverPhone|body|string| 是 |收货手机号|
+|» Address|body|string| 是 |所在地区|
+|» Username|body|string| 是 |用户名|
+|» AddressDetail|body|string| 是 |具体地址|
+|» IsdefaultAddress|body|string| 是 |是否设为默认地址|
+|» AddressID|body|string| 是 |地址ID|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "data": true
+}
+```
+
+> 失败
+
+```json
+{
+  "data": false
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+状态码 **400**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+## DELETE 删除地址信息
+
+DELETE /user/deleteAddress
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|AddressID|query|string| 是 |地址ID|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "data": true
+}
+```
+
+> 失败
+
+```json
+{
+  "data": false
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+状态码 **400**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
 ## GET 显示地址信息
 
-GET /user/addressInfo
+GET /user/address
 
 ### 请求参数
 
@@ -828,122 +1071,11 @@ GET /user/addressInfo
 |---|---|---|---|---|
 |» data|object|true|none|none|
 
-## POST 添加地址信息
-
-POST /user/addAddressInfo
-
-> Body 请求参数
-
-```yaml
-Receiver: string
-ReceiverPhone: string
-Address: string
-Username: string
-AddressDetail: string
-IsdefaultAddress: string
-
-```
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|object| 否 |none|
-|» Receiver|body|string| 是 |收货人|
-|» ReceiverPhone|body|string| 是 |收货手机号|
-|» Address|body|string| 是 |所在地区|
-|» Username|body|string| 是 |用户名|
-|» AddressDetail|body|string| 是 |具体地址|
-|» IsdefaultAddress|body|string| 是 |是否设为默认地址|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "data": true
-}
-```
-
-> 失败
-
-```json
-{
-  "data": false
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|boolean|true|none|none|
-
-状态码 **400**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|boolean|true|none|none|
-
 # 个人界面/设置界面
-
-## PUT 修改昵称
-
-PUT /user/changeNickname
-
-> Body 请求参数
-
-```yaml
-Uid: string
-Unickname: string
-
-```
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|body|body|object| 否 |none|
-|» Uid|body|string| 是 |用户id|
-|» Unickname|body|string| 是 |输入新的昵称|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "data": true
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|boolean|true|none|none|
 
 ## PUT 修改头像
 
-PUT /user/changePhoto
+PUT /person/headphoto
 
 > Body 请求参数
 
@@ -985,11 +1117,55 @@ Uphoto: string
 |---|---|---|---|---|
 |» data|boolean|true|none|none|
 
+## PUT 修改昵称
+
+PUT /person/nickname
+
+> Body 请求参数
+
+```yaml
+Uid: string
+Unickname: string
+
+```
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|body|body|object| 否 |none|
+|» Uid|body|string| 是 |用户id|
+|» Unickname|body|string| 是 |输入新的昵称|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "data": true
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
 # 个人界面/我的收藏
 
 ## GET 收藏列表
 
-GET /collect/collect
+GET /collect/mycollect
 
 ### 请求参数
 
@@ -1050,11 +1226,71 @@ GET /collect/collect
 |»» Guid|string|false|none|none|
 |»» Coltime|string|false|none|none|
 
+## POST 添加收藏
+
+POST /collect/getcollect
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Colid|query|string| 否 |收藏id|
+
+> 返回示例
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» list|[object]|true|none|none|
+|»» Gid|integer|false|none|none|
+|»» Uid|string|false|none|none|
+|»» Guid|string|false|none|none|
+|»» Coltime|string|false|none|none|
+
+## DELETE 删除收藏
+
+DELETE /collect/collect
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Colid|query|string| 否 |收藏id|
+
+> 返回示例
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» list|[object]|true|none|none|
+|»» Gid|integer|false|none|none|
+|»» Uid|string|false|none|none|
+|»» Guid|string|false|none|none|
+|»» Coltime|string|false|none|none|
+
 # 个人界面/订单签收
 
 ## PUT 确认收货
 
-PUT /UserInfo/ensureBuyOrder
+PUT /account/account
 
 ### 请求参数
 
@@ -1101,107 +1337,11 @@ PUT /UserInfo/ensureBuyOrder
 |---|---|---|---|---|
 |» data|boolean|true|none|none|
 
-## GET 显示收货信息
-
-GET /UserInfo/buyOrderInfo
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|UserBuy|query|string| 是 |购买用户|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "data": {
-    "Signforgoods": [
-      {
-        "OrderID": 23,
-        "Image": "https://dnsinweidswgwnb",
-        "GoodName": "原创设计杭州方言文创",
-        "SalePrice": 10
-      }
-    ]
-  }
-}
-```
-
-> 失败
-
-```json
-{
-  "data": {}
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|object|true|none|none|
-|»» Signforgoods|[object]|true|none|none|
-|»»» OrderID|integer|false|none|none|
-|»»» Image|string|false|none|none|
-|»»» GoodName|string|false|none|none|
-|»»» SalePrice|integer|false|none|none|
-
-状态码 **400**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|object|true|none|none|
-
 # 发布界面/发布地址/地址管理 Copy
-
-## DELETE 删除地址信息
-
-DELETE /user/deleteAddressInfo
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|AddressID|query|string| 是 |地址ID|
-
-> 返回示例
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|boolean|true|none|none|
-
-状态码 **400**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|boolean|true|none|none|
 
 ## PUT 修改地址信息
 
-PUT /user/changeAddressInfo
+PUT /person/address
 
 > Body 请求参数
 
@@ -1252,11 +1392,135 @@ AddressID: string
 |---|---|---|---|---|
 |» data|boolean|true|none|none|
 
+## POST 添加地址信息
+
+POST /person/address
+
+> Body 请求参数
+
+```yaml
+Receiver: string
+ReceiverPhone: string
+Address: string
+Username: string
+AddressDetail: string
+IsdefaultAddress: string
+
+```
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|body|body|object| 否 |none|
+|» Receiver|body|string| 是 |收货人|
+|» ReceiverPhone|body|string| 是 |收货手机号|
+|» Address|body|string| 是 |所在地区|
+|» Username|body|string| 是 |用户名|
+|» AddressDetail|body|string| 是 |具体地址|
+|» IsdefaultAddress|body|string| 是 |是否设为默认地址|
+
+> 返回示例
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+状态码 **400**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+## DELETE 删除地址信息
+
+DELETE /person/address
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|AddressID|query|string| 是 |地址ID|
+
+> 返回示例
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+状态码 **400**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|boolean|true|none|none|
+
+## GET 显示地址信息
+
+GET /person/address
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|Username|query|string| 是 |用户名|
+
+> 返回示例
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|object|true|none|none|
+|»» AddressInfo|[object]|true|none|none|
+|»»» AddressID|integer|true|none|none|
+|»»» Receiver|string|true|none|none|
+|»»» ReceiverPhone|string|true|none|none|
+|»»» Address|string|true|none|none|
+|»»» AddressDetail|string|true|none|none|
+|»»» IsdefaultAddress|boolean|true|none|none|
+
+状态码 **400**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» data|object|true|none|none|
+
 # 发布界面/我的购买
 
 ## GET 显示购买列表
 
-GET /message/buyInfo
+GET /buy/getmybuy
 
 ### 请求参数
 
@@ -1319,7 +1583,7 @@ GET /message/buyInfo
 
 ## GET 我的购买物流
 
-GET /message/showBuyInfo
+GET /buy/getymybuy
 
 > Body 请求参数
 
@@ -1398,72 +1662,9 @@ GET /message/showBuyInfo
 
 # 发布界面/我的转卖
 
-## GET 显示转卖列表
-
-GET /message/saleInfo
-
-### 请求参数
-
-|名称|位置|类型|必选|说明|
-|---|---|---|---|---|
-|UserSale|query|string| 是 |出售用户|
-
-> 返回示例
-
-> 成功
-
-```json
-{
-  "data": {
-    "list": [
-      {
-        "OrderID": 21,
-        "UserBuy": "不想起的ming",
-        "SaleOrBuyID": 8,
-        "GoodName": "微软平板电脑二合一"
-      }
-    ]
-  }
-}
-```
-
-> 失败
-
-```json
-{
-  "data": {}
-}
-```
-
-### 返回结果
-
-|状态码|状态码含义|说明|数据模型|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|失败|Inline|
-
-### 返回数据结构
-
-状态码 **200**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|object|true|none|none|
-|»» list|[object]|true|none|none|
-|»»» OrderID|integer|false|none|none|
-|»»» UserBuy|string|false|none|none|
-|»»» SaleOrBuyID|integer|false|none|none|
-|»»» GoodName|string|false|none|none|
-
-状态码 **400**
-
-|名称|类型|必选|约束|说明|
-|---|---|---|---|---|
-|» data|object|true|none|none|
-
 ## GET 我的转卖物流
 
-GET /message/showSaleInfo
+GET /buy/getmyout
 
 > Body 请求参数
 
@@ -1544,7 +1745,7 @@ SaleOrBuyID: string
 
 ## GET 显示聊天记录
 
-GET /message/specificChat
+GET /message/getmessage
 
 > Body 请求参数
 
@@ -1615,15 +1816,14 @@ OtherUser: string
 |---|---|---|---|---|
 |» data|object|true|none|none|
 
-## POST 发送聊天消息
+## POST 修改消息状态
 
-POST /message/sendMsg
+POST /message/changemessage
 
 > Body 请求参数
 
 ```yaml
-Username: string
-OtherUser: string
+mid: string
 Message: string
 
 ```
@@ -1633,8 +1833,7 @@ Message: string
 |名称|位置|类型|必选|说明|
 |---|---|---|---|---|
 |body|body|object| 否 |none|
-|» Username|body|string| 是 |聊天一方用户|
-|» OtherUser|body|string| 是 |聊天另一方用户|
+|» mid|body|string| 是 |用户id|
 |» Message|body|string| 是 |消息|
 
 > 返回示例
@@ -1675,6 +1874,150 @@ Message: string
 |名称|类型|必选|约束|说明|
 |---|---|---|---|---|
 |» data|boolean|true|none|none|
+
+# 公益
+
+## GET 公益列表
+
+GET /charity/indexCharity
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|uid|query|string| 否 |参加人id	外键|
+|account|query|string| 否 |none|
+|nickname|query|string| 否 |none|
+|raputation|query|string| 否 |none|
+|tel|query|string| 否 |none|
+|hxid|query|string| 否 |none|
+|cid|query|string| 否 |none|
+|cname|query|string| 否 |none|
+|cdetail|query|string| 否 |none|
+|cneed|query|string| 否 |none|
+|cnumber|query|string| 否 |none|
+|ctime|query|string| 否 |none|
+|cdeadline|query|string| 否 |none|
+|ctype|query|string| 否 |none|
+|caddress|query|string| 否 |none|
+|cscannum|query|string| 否 |none|
+|cjoinnum|query|string| 否 |none|
+|cstate|query|string| 否 |none|
+|cimage|query|string| 否 |none|
+|headphoto|query|string| 否 |none|
+
+> 返回示例
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+## GET 公益状态
+
+GET /charity/getcharity
+
+设置公益状态
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|cname|query|string| 否 |公益名称|
+|cstate|query|string| 否 |公益状态，1表示在进行中，2表示失效，3表示用户已删除|
+|cdetail|query|string| 否 |详情说明|
+|cneed|query|string| 否 |公益需求|
+|nickname|query|string| 否 |用户昵称|
+|caddress|query|string| 否 |发布地址|
+|ctime|query|string| 否 |发布时间|
+|cdeadline|query|string| 否 |截止时间|
+|cscannum|query|string| 否 |浏览人数|
+|cjoinnum|query|string| 否 |参观人数|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "cname": "曾明",
+  "cstate": 1,
+  "cneed": "没有额外需求",
+  "cdetail": "捐款10元",
+  "nickname": "小明",
+  "caddress": "浙江工商大学",
+  "ctime": "12:43:02",
+  "cdeadline": "14:03:56",
+  "cscannum": 10,
+  "cjoinnum": 20
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» cname|string|true|none|none|
+|» cstate|integer|true|none|none|
+|» cdetail|string|true|none|none|
+|» cneed|string|true|none|none|
+|» nickname|string|true|none|none|
+|» caddress|string|true|none|none|
+|» ctime|string|true|none|none|
+|» cdeadline|string|true|none|none|
+|» cscannum|integer|true|none|none|
+|» cjoinnum|integer|true|none|none|
+
+## PUT 加入公益
+
+PUT /charity/joincharity
+
+### 请求参数
+
+|名称|位置|类型|必选|说明|
+|---|---|---|---|---|
+|cid|query|string| 否 |主键，公益ID|
+|cuid|query|string| 否 |外键，发起人的ID|
+|jtime|query|string| 否 |参加时间|
+
+> 返回示例
+
+> 成功
+
+```json
+{
+  "cid": "捐款",
+  "cuid": "小明",
+  "jtime": "15:59:04"
+}
+```
+
+### 返回结果
+
+|状态码|状态码含义|说明|数据模型|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|成功|Inline|
+
+### 返回数据结构
+
+状态码 **200**
+
+|名称|类型|必选|约束|说明|
+|---|---|---|---|---|
+|» cid|string|true|none|none|
+|» cuid|string|true|none|none|
+|» jtime|string|true|none|none|
 
 # 数据模型
 
