@@ -25,4 +25,6 @@ public interface GoodsService extends IService<Goods> {
     List<Goods> queryMyfree(String uid,String state);
 
     boolean refreshGoods(Goods target);
+
+    boolean insertGoods(Goods goods);
 }

@@ -66,4 +66,9 @@ public class GoodsServiceImpl extends ServiceImpl<GoodsMapper, Goods> implements
         return updateById(target);
     }
 
+    @Override
+    public boolean insertGoods(Goods goods) {
+        return save(goods);
+    }
+
 }

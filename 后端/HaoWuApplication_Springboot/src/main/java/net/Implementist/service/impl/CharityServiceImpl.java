@@ -33,4 +33,9 @@ public class CharityServiceImpl extends ServiceImpl<CharityMapper, Charity> impl
     public boolean refreshCharity(Charity charity) {
         return updateById(charity);
     }
+
+    @Override
+    public boolean insertCharity(Charity charity) {
+        return save(charity);
+    }
 }

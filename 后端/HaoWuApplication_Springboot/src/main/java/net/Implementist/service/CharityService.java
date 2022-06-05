@@ -16,4 +16,5 @@ import java.util.List;
 public interface CharityService extends IService<Charity> {
     List<Charity> queryMypublish(String uid);
     boolean refreshCharity(Charity charity);
+    boolean insertCharity(Charity charity);
 }
