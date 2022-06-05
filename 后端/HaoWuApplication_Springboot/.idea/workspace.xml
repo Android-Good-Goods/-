@@ -20,9 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff59daa1-22b4-477a-8127-bf5bdf4dff0e" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/controller/PersonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/controller/PersonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/mapper/BuyconmentsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/mapper/BuyconmentsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/service/impl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/util/HXUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/util/HXUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/Implementist/util/HxToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/Implementist/util/HxToken.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
@@ -98,6 +101,7 @@
       <workItem from="1653632496537" duration="37000" />
       <workItem from="1654437703101" duration="417000" />
       <workItem from="1654438339781" duration="189000" />
+      <workItem from="1654438718123" duration="557000" />
     </task>
     <servers />
   </component>
