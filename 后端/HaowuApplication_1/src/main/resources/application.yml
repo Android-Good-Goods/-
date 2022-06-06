@@ -1,0 +1,20 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /HaoWuApplication
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/haowu?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password:
+  thymeleaf:
+    cache: false
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: net.Implementist.entity
+  configuration:
+    #开启驼峰映射
+    map-underscore-to-camel-case: true
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
