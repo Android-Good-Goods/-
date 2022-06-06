@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.Implementist.mapper.JoincharityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.Implementist.entity.Joincharity">
+        <id column="Jid" property="Jid" />
+        <result column="Cid" property="Cid" />
+        <result column="Uid" property="Uid" />
+        <result column="Cuid" property="Cuid" />
+        <result column="Jtime" property="Jtime" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.Implementist.mapper.AccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.Implementist.entity.Account">
+        <id column="Aid" property="Aid" />
+        <result column="Anumber" property="Anumber" />
+        <result column="Gid" property="Gid" />
+        <result column="Uid" property="Uid" />
+        <result column="Guid" property="Guid" />
+        <result column="Abill" property="Abill" />
+        <result column="Atime" property="Atime" />
+        <result column="Astate" property="Astate" />
+    </resultMap>
+
+</mapper>

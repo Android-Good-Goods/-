@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.Implementist.mapper.GoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="net.Implementist.entity.Goods">
+        <id column="Gid" property="Gid" />
+        <result column="Gname" property="Gname" />
+        <result column="Uid" property="Uid" />
+        <result column="Gtime" property="Gtime" />
+        <result column="Gtype" property="Gtype" />
+        <result column="Gdetail" property="Gdetail" />
+        <result column="Gprice" property="Gprice" />
+        <result column="Goprice" property="Goprice" />
+        <result column="Gimage" property="Gimage" />
+        <result column="Gstate" property="Gstate" />
+        <result column="Gemergent" property="Gemergent" />
+        <result column="Ggetway" property="Ggetway" />
+        <result column="Ghownew" property="Ghownew" />
+        <result column="Gscannum" property="Gscannum" />
+        <result column="Gaddress" property="Gaddress" />
+    </resultMap>
+
+</mapper>
