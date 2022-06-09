@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".contoller.activity.PublishcharityActivity"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_pubbuy_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorRed"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/iv_pubcharity_back"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_arrowleft_white_foreground"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/tv_pubcharity_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="发起公益"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/iv_pubcharity_publish"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/ic_yes_white_foreground" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/rl_pubbuy_title">
+
+        <ImageView
+            android:id="@+id/iv_pubcharity_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/image"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="* 添加图片可以提高曝光度！"
+            android:textSize="12sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="120dp"
+            android:layout_marginLeft="120dp"
+            android:background="@color/cardview_light_background"
+            app:cardCornerRadius="10dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/welcome"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_pubcharity_name"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/publishedit_bg"
+                android:hint="输入公益标题"
+                android:maxLength="30"
+                android:textSize="15sp"
+                android:textColor="@color/Black"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"/>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/et_pubcharity_detail"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="top"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/publishedit_bg"
+            android:hint="详细的介绍一下公益活动哦！"
+            android:maxLength="200"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            android:padding="5dp"/>
+
+        <EditText
+            android:id="@+id/et_pubcharity_need"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="top"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/publishedit_bg"
+            android:hint="公益活动的需求"
+            android:maxLength="200"
+            android:textColor="@color/Black"
+            android:textSize="15sp"
+            android:padding="5dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/rl_pubgoods_title">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_pubcharity_neednum"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/ll_selector_white"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="所需人数"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"/>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_f5_arrowright_foreground"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pubcharity_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="60dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_pubcharity_date"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/colorWhite">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="活动期限"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"/>
+
+                <Spinner
+                    android:id="@+id/sp_pubcharity_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_pubcharity_style"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/ll_selector_white"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="活动方式"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pubcharity_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="线上"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="60dp"/>
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_f5_arrowright_foreground"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_pubcharity_address"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/ll_selector_white"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布地址"
+                    android:textSize="15sp"
+                    android:textColor="@color/Black"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"/>
+
+                <TextView
+                    android:id="@+id/tv_pubcharity_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="60dp"
+                    android:text="浙江省杭州市"
+                    android:textColor="@color/Black"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:src="@drawable/ic_f5_arrowright_foreground"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/hui"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="105dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:id="@+id/iv_mycharity_state"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/youxiao"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/tv_mycharity_cname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="公益标题"
+                android:textColor="@color/Black"
+                android:textSize="15sp"
+                android:layout_toRightOf="@+id/iv_mycharity_state"
+                android:layout_toLeftOf="@+id/tv_mycharity_time"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/tv_mycharity_time"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:gravity="center"
+                android:text="2022-6-7 09:28:14" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_mycharity_hui"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/hui"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_mycharity_symble"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="2dp">
+
+            <TextView
+                android:id="@+id/tv_mycharity_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="编辑"
+                android:textSize="13sp"
+                android:textColor="@color/Black"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/collect_label_bg"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:clickable="true"
+                android:layout_toLeftOf="@+id/tv_mycharity_delete"/>
+
+            <TextView
+                android:id="@+id/tv_mycharity_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除"
+                android:textSize="13sp"
+                android:textColor="@color/Black"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/collect_label_bg"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:clickable="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
