@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".contoller.activity.CharityDetailActivity"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:id="@+id/rl_cdetail_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorRed"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/iv_cdetail_back"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_arrowleft_white_foreground"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/tv_cdetail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="公益详情"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_cdetail_cimage"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:src="@drawable/ic_moren_goods"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp">
+
+        <TextView
+            android:id="@+id/tv_cdetail_cname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公益活动"
+            android:textSize="18sp"
+            android:textColor="@color/Black"
+            android:layout_centerInParent="true"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_cstate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="进行中"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/Green"
+            android:layout_marginRight="10dp"
+            android:paddingRight="3dp"
+            android:paddingLeft="3dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_cdetail_cdetail"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:text="公益详情"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="需求："
+            android:textSize="15sp"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_cneed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公益需求"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发起人："
+            android:textSize="15sp"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_cnickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称"
+            android:textSize="15sp"
+            android:layout_gravity="center_vertical"
+            android:singleLine="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布地点："
+            android:textSize="15sp"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_caddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="浙江省 杭州市"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始时间："
+            android:textSize="15sp"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_ctime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="2022"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="结束时间："
+            android:textSize="15sp"
+            android:textColor="@color/Black"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_cdeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="2022"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/symbol1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/charity_scan"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="浏览人数："
+                android:textColor="@color/Black"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/symbol1"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/tv_cdetail_cscannum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345"
+                android:textColor="@color/Black"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/text1"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/symbol2"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/charity_join"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="参与人数："
+                android:textColor="@color/Black"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/symbol2"
+                android:layout_centerVertical="true"/>
+
+            <TextView
+                android:id="@+id/tv_cdetail_cjoinnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345"
+                android:textColor="@color/Black"
+                android:textSize="13sp"
+                android:layout_toRightOf="@+id/text2"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:id="@+id/tv_cdetail_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系我们"
+            android:textSize="17sp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorRed"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/tv_cdetail_join"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加入我们"
+            android:textSize="17sp"
+            android:textColor="@color/colorWhite"
+            android:background="@color/Green"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

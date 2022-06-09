@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".contoller.activity.MycharityActivity"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_mycharity_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorRed"
+        android:fitsSystemWindows="true">
+
+        <ImageView
+            android:id="@+id/iv_mycharity_back"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_arrowleft_white_foreground"
+            android:clickable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的公益"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_charity_class"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="45dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_charity_mypub"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/ll_selector_white">
+
+            <TextView
+                android:id="@+id/tv_charity_mypub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我发布的"
+                android:textSize="15sp"
+                android:textColor="@color/Black"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/hui"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_charity_mypart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:background="@drawable/ll_selector_white">
+
+            <TextView
+                android:id="@+id/tv_charity_mypart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我参与的"
+                android:textSize="15sp"
+                android:textColor="@color/Black"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fragment_charity_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_charity_class">
+    </FrameLayout>
+
+</RelativeLayout>
