@@ -1,2 +1,0 @@
-include ':app', ':easeui'
-rootProject.name='QuTaoMarket'
