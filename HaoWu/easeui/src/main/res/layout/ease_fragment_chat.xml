@@ -4,13 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
-    android:background="#f2f0eb">
+    android:background="#f2f0eb"
+    android:fitsSystemWindows="true">
 
     <com.hyphenate.easeui.widget.EaseTitleBar
         android:id="@+id/title_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        hyphenate:titleBarLeftImage="@drawable/ease_mm_title_back" />
+        hyphenate:titleBarLeftImage="@drawable/ease_mm_title_back"
+        hyphenate:titleBarBackground="@color/colorPrimary"
+        android:fitsSystemWindows="true"/>
 
     <LinearLayout
         android:id="@+id/layout_alert_kicked_off"

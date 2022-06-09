@@ -1,2 +1,2 @@
-rootProject.name = "HaoWu"
-include ':app'
+include ':app', ':easeui'
+rootProject.name='QuTaoMarket'

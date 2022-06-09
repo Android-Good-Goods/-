@@ -100,7 +100,7 @@ public class EaseBaiduMapActivity extends EaseBaseActivity {
 		mBaiduMap.setMapStatus(msu);
 		initMapView();
 		if (latitude == 0) {
-			mMapView = new MapView(this, new BaiduMapOptions());
+			mMapView = new MapView((Context) this, new BaiduMapOptions());
 			mBaiduMap.setMyLocationConfigeration(new MyLocationConfiguration(
 					mCurrentMode, true, null));
 			showMapWithLocationClient();
@@ -108,7 +108,7 @@ public class EaseBaiduMapActivity extends EaseBaseActivity {
 			double longtitude = intent.getDoubleExtra("longitude", 0);
 			String address = intent.getStringExtra("address");
 			LatLng p = new LatLng(latitude, longtitude);
-			mMapView = new MapView(this,
+			mMapView = new MapView((Context) this,
 					new BaiduMapOptions().mapStatus(new MapStatus.Builder()
 							.target(p).build()));
 			showMap(latitude, longtitude, address);
@@ -155,7 +155,7 @@ public class EaseBaiduMapActivity extends EaseBaseActivity {
 
 		progressDialog.show();
 
-		mLocClient = new LocationClient(this);
+		mLocClient = new LocationClient((Context) this);
 		mLocClient.registerLocationListener(myListener);
 
 		LocationClientOption option = new LocationClientOption();

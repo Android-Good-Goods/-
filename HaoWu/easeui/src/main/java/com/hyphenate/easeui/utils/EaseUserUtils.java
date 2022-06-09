@@ -41,16 +41,21 @@ public class EaseUserUtils {
         if(user != null && user.getAvatar() != null){
             try {
                 int avatarResId = Integer.parseInt(user.getAvatar());
-                Glide.with(context).load(avatarResId).into(imageView);
+                Glide.with(context).load(avatarResId).circleCrop().into(imageView);
             } catch (Exception e) {
-                //use default avatar
-                Glide.with(context).load(user.getAvatar())
-                        .apply(RequestOptions.placeholderOf(R.drawable.ease_default_avatar)
-                                .diskCacheStrategy(DiskCacheStrategy.ALL))
-                        .into(imageView);
+                if("null".equals(user.getAvatar())){
+                    Glide.with(context).load(R.drawable.moren_headphoto).circleCrop().into(imageView);
+                }else {
+                    //use default avatar
+                    Glide.with(context).load(user.getAvatar())
+                            .apply(RequestOptions.placeholderOf(R.drawable.moren_headphoto)
+                                    .diskCacheStrategy(DiskCacheStrategy.ALL))
+                            .circleCrop()
+                            .into(imageView);
+                }
             }
         }else{
-            Glide.with(context).load(R.drawable.ease_default_avatar).into(imageView);
+            Glide.with(context).load(R.drawable.moren_headphoto).circleCrop().into(imageView);
         }
     }
     
